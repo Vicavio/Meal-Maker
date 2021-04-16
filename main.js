@@ -7,32 +7,32 @@ const menu = { //Start by creating an empty menu object.
     get appetizers() { //Create getter and setter methods for the appetizers, mains, and desserts properties.
         return this._courses.appetizers;
         },  
-    set appetizers(appetizers) {
-        this._courses.appetizers = appetizers;
+    set appetizers(appetizersOne) {
+        this._courses.appetizers = appetizersOne;
         },   
     get mains() {
         return this._courses.mains;
         }, 
-    set mains(mains) {
-            this._courses.mains = mains;
+    set mains(mainsOne) {
+            this._courses.mains = mainsOne;
         },
     get desserts() {
         return this._courses.desserts;
         },
-    set desserts(desserts) {
-        this._courses.appetizers = desserts;
+    set desserts(dessertsOne) {
+        this._courses.appetizers = dessertsOne;
         },
     get courses() { //Inside your menu object, create an empty getter method for the _courses property
         return { //Inside the courses getter method, return an object that contains key/value pairs for appetizers, mains, and desserts.
-            appetizers: this.appetizers,
-            mains: this.mains,
-            desserts: this.desserts,
+            appetizers: this._courses.appetizers,
+            mains: this._courses.mains,
+            desserts: this._courses.desserts,
             };
         },
     addDishToCourse(courseName, dishName, dishPrice) { //The .addDishToCourse() method should create an object called dish which has a name and price which it gets from the parameters. 
         const dish = {
             name: dishName,
-            price: dishPrice,
+            price: dishPrice
         };
         return this._courses[courseName].push(dish);  //The method should then push this dish object into the appropriate array in your menu‘s _courses object based on what courseName was passed in.
     },
@@ -47,8 +47,6 @@ const menu = { //Start by creating an empty menu object.
         const dessert = this.getRandomDishFromCourse('desserts');
         let totalPrice = appetizer.price + main.price + dessert.price;
         return `You ordered a ${appetizer.name}, then a ${main.name} and ${dessert.name}. It will cost you ${totalPrice} euros.`;
-    }, 
-    addDishToCourse() {
     }
  };
 
